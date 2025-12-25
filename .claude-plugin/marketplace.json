@@ -1,0 +1,47 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "es6kr-plugins",
+  "description": "Collection of plugins for code quality and project automation",
+  "owner": {
+    "name": "es6.kr",
+    "email": "drumrobot43@gmail.com"
+  },
+  "plugins": [
+    {
+      "name": "code-quality",
+      "description": "Code review and commit management tools including automated PR review and commit splitting strategies",
+      "version": "0.1.0",
+      "author": {
+        "name": "es6.kr",
+        "email": "drumrobot43@gmail.com"
+      },
+      "source": "./plugins/code-quality",
+      "category": "productivity",
+      "homepage": "https://github.com/es6kr/claude-plugins/tree/main/plugins/code-quality"
+    },
+    {
+      "name": "project-automation",
+      "description": "Claude Code automation toolkit including agentify (convert workflows to agents/skills), skill-writer (create Skills), and next-action (suggest follow-up tasks)",
+      "version": "0.1.0",
+      "author": {
+        "name": "es6.kr",
+        "email": "drumrobot43@gmail.com"
+      },
+      "source": "./plugins/project-automation",
+      "category": "productivity",
+      "homepage": "https://github.com/es6kr/claude-plugins/tree/main/plugins/project-automation"
+    },
+    {
+      "name": "sourcegit",
+      "description": "SourceGit GUI client management from Claude Code. Add/remove repositories, manage workspaces, sync with ghq repositories",
+      "version": "0.1.0",
+      "author": {
+        "name": "es6.kr",
+        "email": "drumrobot43@gmail.com"
+      },
+      "source": "./plugins/sourcegit",
+      "category": "productivity",
+      "homepage": "https://github.com/es6kr/claude-plugins/tree/main/plugins/sourcegit"
+    }
+  ]
+}
