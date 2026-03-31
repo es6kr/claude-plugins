@@ -39,7 +39,7 @@ Guide users to convert functionality into the appropriate Claude Code automation
 **If no target specified** ("agentify" alone):
 - Review conversation for automation candidates
 - Look for: verbose outputs, multi-step workflows, repeated patterns
-- Present candidates with AskUserQuestion
+- ⚠️ **MUST use `multiSelect: true`** when presenting candidates (users often want multiple)
 
 **If target specified**:
 1. Check local marketplaces first:
@@ -115,3 +115,12 @@ Keep responses concise:
 - Use tables over verbose lists
 - Link to references instead of inline
 - Use AskUserQuestion instead of text options
+
+## AskUserQuestion Defaults
+
+| Context | multiSelect |
+|---------|-------------|
+| Automation candidates | **true** (users often want multiple) |
+| Type selection | false (mutually exclusive) |
+| Scope selection | false (one location) |
+| Feature selection | **true** (additive choices) |

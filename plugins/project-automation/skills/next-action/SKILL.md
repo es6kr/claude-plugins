@@ -139,7 +139,7 @@ options: [
 ```typescript
 multiSelect: true,
 options: [
-  { label: "Agentificate", description: "Convert this workflow to an agent/skill" },
+  { label: "Agentify", description: "Convert this workflow to an agent/skill" },
   { label: "Serena memory", description: "Save key learnings to Serena memory" }
 ]
 ```

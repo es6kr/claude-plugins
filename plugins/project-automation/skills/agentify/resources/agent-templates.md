@@ -14,25 +14,28 @@ tools: [Tool1, Tool2, Tool3]
 # Agent Name
 
 ## Purpose
+
 What this agent does
 
 ## Instructions
+
 1. Step one
 2. Step two
 3. Step three
 
 ## Output
+
 What to return to the parent agent
 ```
 
 ## Frontmatter Fields
 
-| Field | Required | Description |
-|-------|----------|-------------|
-| `name` | ✅ | Agent identifier (kebab-case) |
-| `description` | ✅ | Description + trigger conditions + examples (escaped newlines) |
-| `tools` | ❌ | Allowed tools list (all if omitted) |
-| `model` | ❌ | Model to use (sonnet, opus, haiku) |
+| Field         | Required | Description                                                    |
+| ------------- | -------- | -------------------------------------------------------------- |
+| `name`        | ✅       | Agent identifier (kebab-case)                                  |
+| `description` | ✅       | Description + trigger conditions + examples (escaped newlines) |
+| `tools`       | ❌       | Allowed tools list (all if omitted)                            |
+| `model`       | ❌       | Model to use (sonnet, opus, haiku)                             |
 
 ### CRITICAL: Description Field Format
 
@@ -44,7 +47,7 @@ The `description` field **MUST be a single line** with escaped newlines (`\n`). 
 description: Brief description. Use when [trigger].\n\nExamples:\n\n<example>\nContext: ...\nuser: "..."\nassistant: "..."\n</example>
 ```
 
-**❌ Wrong (multi-line):**
+**❌ Wrong (multi-line with `Examples:`):**
 
 ```yaml
 description: Brief description.
@@ -54,6 +57,18 @@ Examples:
 <example>
 ...
 </example>
+```
+
+**✅ Correct (multi-line with `|`):**
+
+```yaml
+description: |
+  Brief description
+  Examples:
+
+  <example>
+  ...
+  </example>
 ```
 
 ### Description with Examples Template
@@ -76,6 +91,7 @@ tools: [Glob, Grep, Read, WebFetch, TodoWrite, Edit, Write, NotebookEdit]
 # Code Reviewer
 
 ## Purpose
+
 Review committed code for quality and convention compliance.
 
 ## Instructions
@@ -90,6 +106,7 @@ Review committed code for quality and convention compliance.
    - Suggest CONTRIBUTING.md creation
 
 ## Output
+
 - Convention violation list
 - Improvement suggestions
 - (If needed) CONTRIBUTING.md draft
@@ -107,6 +124,7 @@ tools: [Bash, Read, WebFetch, TodoWrite]
 # CI/CD Manager
 
 ## Purpose
+
 Check and report pipeline execution status after push.
 
 ## Instructions
@@ -120,6 +138,7 @@ Check and report pipeline execution status after push.
    - Not running: Check CI config
 
 ## Output
+
 - Pipeline status (success/failed/pending)
 - Cause analysis on failure
 - Suggested next actions
@@ -137,6 +156,7 @@ tools: [Bash, Glob, Grep, Read, TodoWrite, Edit, Write]
 # System Cleanup
 
 ## Purpose
+
 Safely clean unnecessary files from the system.
 
 ## Instructions
@@ -151,6 +171,7 @@ Safely clean unnecessary files from the system.
 5. Execute cleanup only for approved items
 
 ## Output
+
 - Before/after size comparison
 - Deleted item list
 - Recovered space
@@ -158,7 +179,7 @@ Safely clean unnecessary files from the system.
 
 ### 4. Report Generator Agent
 
-```markdown
+````markdown
 ---
 name: report-generator
 description: Generate reports from data or work history. Use for weekly reports, summaries, or analysis
@@ -168,6 +189,7 @@ tools: [Bash, Glob, Grep, Read, WebFetch, TodoWrite, Edit, Write]
 # Report Generator
 
 ## Purpose
+
 Collect and organize work history into reports.
 
 ## Instructions
@@ -176,6 +198,8 @@ Collect and organize work history into reports.
    ```bash
    git log --since="last monday" --until="now" --oneline
    ```
+````
+
 2. Collect completed items from task tracker
 3. Categorize:
    - New features
@@ -185,6 +209,7 @@ Collect and organize work history into reports.
 4. Write according to report template
 
 ## Output
+
 - Report markdown
 - Key achievements summary (3-5 lines)
 ```
@@ -231,6 +256,7 @@ tools: [Bash, Glob, Grep, Read, Edit, Write, TodoWrite]
 # Refactor
 
 ## Purpose
+
 Split large files and improve structure.
 
 ## Instructions
@@ -246,6 +272,7 @@ Split large files and improve structure.
 4. Execute after approval
 
 ## Output
+
 - Separated file list
 - Changed import paths
 - Items requiring verification
