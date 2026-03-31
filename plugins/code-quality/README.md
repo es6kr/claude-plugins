@@ -1,6 +1,6 @@
 # Code Quality Plugin
 
-Code review and commit management tools for Claude Code.
+Code quality tools for commit management and skill lifecycle.
 
 ## Features
 
@@ -29,69 +29,38 @@ Review individual commits for convention compliance. Complements the official [c
 
 ### Skills
 
-#### commit-splitter
+#### commit-tidy
 
-Analyzes staged changes and recommends whether commits should be split.
+Analyzes staged/committed changes and recommends splitting or squashing strategies.
 
-**Trigger**: Activated when user mentions "commit split", "should I split this commit"
+**Trigger**: "commit split", "split commits", "should I split this commit", "squash commits", "tidy commits"
 
 **Decision Criteria**:
 - Unrelated functionality changes
 - Mixed change types (feat + fix + refactor)
 - Wide file spread across directories
 - Large diff size
+- Consecutive WIP or agent-loop commits (squash candidates)
+
+#### skill-toolkit
+
+Skill lifecycle management: create, lint, merge, convert, deduplicate, and upgrade skills.
+
+**Trigger**: "skill-toolkit", "skill lint", "skill merge", "skill dedup", "skill convert", "skill upgrade"
+
+**Features**:
+- **writer**: Create new skills with proper structure
+- **lint**: Validate and fix SKILL.md frontmatter
+- **merge**: Combine related skills into one
+- **convert**: Convert agents to skills
+- **dedup**: Find duplicate skills
+- **upgrade**: Add topics and improve existing skills
 
 ## Installation
 
 ```bash
-claude /install-plugin github.com/es6kr/claude-plugins/plugins/code-quality
+make install PLUGIN=code-quality
 ```
-
-## Usage
-
-### Code Review
-
-After committing, the commit-reviewer agent activates automatically:
-
-```
-User: Commit the changes
-Claude: Changes committed. Launching commit-reviewer agent...
-
-## Code Review Results
-**Commit:** abc1234
-**Changed Files:** 3
-
-| File | Status | Issues |
-|------|--------|--------|
-| src/api.ts | ✅ | - |
-| src/utils.ts | ⚠️ | Missing JSDoc |
-```
-
-### Commit Splitting
-
-Before committing large changes:
-
-```
-User: Should I split this commit?
-Claude: [Analyzes staged changes]
-
-## Analysis Results
-### Recommendation: Split into 2 commits
-
-**Commit 1**: feat: add user API
-- src/api/user.ts
-- tests/api/user.test.ts
-
-**Commit 2**: fix: correct validation logic
-- src/utils/validate.ts
-```
-
-## Configuration
-
-No additional configuration required. The plugin uses project conventions from:
-- `CONTRIBUTING.md`
-- `.eslintrc` / `.prettierrc`
-- `pyproject.toml` / `ruff.toml`
 
 ## License
 
