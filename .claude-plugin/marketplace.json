@@ -9,7 +9,7 @@
   "plugins": [
     {
       "name": "code-quality",
-      "description": "Code review and commit management tools including automated PR review and commit splitting strategies",
+      "description": "Code quality tools including commit-tidy analysis and skill-toolkit for skill lifecycle management",
       "version": "0.1.0",
       "author": {
         "name": "es6.kr",
@@ -21,7 +21,7 @@
     },
     {
       "name": "project-automation",
-      "description": "Claude Code automation toolkit including agentify (convert workflows to agents/skills), skill-writer (create Skills), and next-action (suggest follow-up tasks)",
+      "description": "Claude Code automation toolkit including agentify (convert workflows to agents/skills) and next-action (suggest follow-up tasks)",
       "version": "0.1.0",
       "author": {
         "name": "es6.kr",
