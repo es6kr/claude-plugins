@@ -1,47 +1,59 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "description": "Collection of plugins for code quality, project automation, git tools, and dotfile management",
   "name": "es6kr-plugins",
-  "description": "Collection of plugins for code quality and project automation",
   "owner": {
-    "name": "es6.kr",
-    "email": "drumrobot43@gmail.com"
+    "email": "drumrobot43@gmail.com",
+    "name": "es6.kr"
   },
   "plugins": [
     {
-      "name": "code-quality",
+      "author": {
+        "email": "drumrobot43@gmail.com",
+        "name": "es6.kr"
+      },
+      "category": "productivity",
       "description": "Code quality tools including commit-tidy analysis and skill-toolkit for skill lifecycle management",
-      "version": "0.1.0",
-      "author": {
-        "name": "es6.kr",
-        "email": "drumrobot43@gmail.com"
-      },
+      "homepage": "https://github.com/es6kr/claude-plugins/tree/main/plugins/code-quality",
+      "name": "code-quality",
       "source": "./plugins/code-quality",
-      "category": "productivity",
-      "homepage": "https://github.com/es6kr/claude-plugins/tree/main/plugins/code-quality"
+      "version": "0.1.0"
     },
     {
-      "name": "project-automation",
-      "description": "Claude Code automation toolkit including agentify (convert workflows to agents/skills) and next-action (suggest follow-up tasks)",
-      "version": "0.1.0",
       "author": {
-        "name": "es6.kr",
-        "email": "drumrobot43@gmail.com"
+        "email": "drumrobot43@gmail.com",
+        "name": "es6.kr"
       },
-      "source": "./plugins/project-automation",
       "category": "productivity",
-      "homepage": "https://github.com/es6kr/claude-plugins/tree/main/plugins/project-automation"
+      "description": "Dotfile management tools including chezmoi, syncthing sync, and Oh My Zsh plugin management",
+      "homepage": "https://github.com/es6kr/claude-plugins/tree/main/plugins/dotfile-tools",
+      "name": "dotfile-tools",
+      "source": "./plugins/dotfile-tools",
+      "version": "0.1.0"
     },
     {
-      "name": "git-tools",
+      "author": {
+        "email": "drumrobot43@gmail.com",
+        "name": "es6.kr"
+      },
+      "category": "productivity",
       "description": "Git repository management including ghq migration, SourceGit integration, worktree fixes, and duplicate repo merging",
-      "version": "0.1.0",
-      "author": {
-        "name": "es6.kr",
-        "email": "drumrobot43@gmail.com"
-      },
+      "homepage": "https://github.com/es6kr/claude-plugins/tree/main/plugins/git-tools",
+      "name": "git-tools",
       "source": "./plugins/git-tools",
+      "version": "0.1.0"
+    },
+    {
+      "author": {
+        "email": "drumrobot43@gmail.com",
+        "name": "es6.kr"
+      },
       "category": "productivity",
-      "homepage": "https://github.com/es6kr/claude-plugins/tree/main/plugins/git-tools"
+      "description": "Claude Code automation toolkit including agentify (convert workflows to agents/skills) and next-action (suggest follow-up tasks)",
+      "homepage": "https://github.com/es6kr/claude-plugins/tree/main/plugins/project-automation",
+      "name": "project-automation",
+      "source": "./plugins/project-automation",
+      "version": "0.1.0"
     }
   ]
 }
