@@ -190,5 +190,5 @@ The `repo-to-ghq.sh` script:
 ## Output
 
 ```
-Repository moved to '/Users/david/ghq/github.com/org/repo'.
+Repository moved to '/Users/es6kr/ghq/github.com/org/repo'.
 ```

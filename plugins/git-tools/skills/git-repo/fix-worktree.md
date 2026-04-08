@@ -33,10 +33,10 @@ scripts/git-fix-worktree.sh /path/to/repo.git
 ## Example Output
 
 ```
-Scanning for broken bare repos in: /Users/david/.ghq
-Fixed: /Users/david/.ghq/github.com/user/repo.git
-  Registered worktree: /Users/david/works/repo
-  Updated .git -> /Users/david/.ghq/github.com/user/repo.git/worktrees/repo
+Scanning for broken bare repos in: /Users/es6kr/.ghq
+Fixed: /Users/es6kr/.ghq/github.com/user/repo.git
+  Registered worktree: /Users/es6kr/works/repo
+  Updated .git -> /Users/es6kr/.ghq/github.com/user/repo.git/worktrees/repo
   Rebuilt index
 Done.
 ```

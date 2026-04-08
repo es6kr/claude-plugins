@@ -1,0 +1,20 @@
+{
+  "updatedAt": "2026-04-08",
+  "skills": [
+    { "slug": "chezmoi", "version": "0.1.1", "category": "dotfile-tools" },
+    { "slug": "claudify", "version": "0.1.1", "category": "project-automation", "commands": ["agentify"] },
+    { "slug": "claude-session", "version": "0.1.1", "category": "code-quality", "commands": ["session"] },
+    { "slug": "code-workflow", "version": "0.1.2", "category": "code-quality", "commands": ["coding-workflow"] },
+    { "slug": "commit-tidy", "version": "0.1.0", "category": "code-quality" },
+    { "slug": "dotfile", "version": "0.1.0", "category": "dotfile-tools", "commands": ["sync"] },
+    { "slug": "fix", "version": "0.1.1", "category": "code-quality" },
+    { "slug": "git-repo", "version": "0.1.0", "category": "git-tools" },
+    { "slug": "mcp-config", "version": "0.1.0", "category": "mcp-tools" },
+    { "slug": "omz", "version": "0.1.0", "category": "dotfile-tools" },
+    { "slug": "repo", "version": "0.1.0", "category": "code-quality", "commands": ["init"] },
+    { "slug": "skill-kit", "version": "0.1.1", "category": "code-quality" },
+    { "slug": "tdd", "version": "0.1.0", "category": "code-quality" },
+    { "slug": "todowrite", "version": "0.1.0", "category": "code-quality", "commands": ["todo"] },
+    { "slug": "wip", "version": "0.1.0", "category": "code-quality" }
+  ]
+}
