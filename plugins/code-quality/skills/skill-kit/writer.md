@@ -23,6 +23,8 @@ Ask clarifying questions:
 - Good: "PDF form filling", "Excel data analysis"
 - Too broad: "Document processing", "Data tools"
 
+**Language rule**: Skills intended for distribution (ClawHub, plugins) must be written in **English** — SKILL.md frontmatter, headings, and body. Personal-only skills may use any language.
+
 ### Step 2: Choose Location
 
 | Location | Purpose |
@@ -46,6 +48,17 @@ skill-name/
 ```
 
 For multi-topic Skills, see [architecture.md](./architecture.md).
+
+### Step 3.5: Detect Language
+
+When adding topics to an existing skill, match the language of the existing content:
+
+1. Read the existing `SKILL.md` and 1-2 topic files
+2. If content is **English** → write new topic in **English only**
+3. If content is **Korean** → write in **Korean** (technical terms in English OK)
+4. If mixed → follow the **majority language**
+
+**Do not** write Korean content in an English skill or vice versa.
 
 ### Step 4: Write Frontmatter
 

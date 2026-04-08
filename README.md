@@ -1,4 +1,4 @@
-# Claude Plugins by es6.kr
+﻿# Claude Plugins by es6.kr
 
 A collection of Claude Code plugins for code quality, project automation, git tools, and dotfile management.
 
@@ -10,7 +10,7 @@ Code quality tools for commit management and skill lifecycle.
 
 - **commit-reviewer** (Agent): Review individual commits for convention compliance
 - **commit-tidy** (Skill): Analyze and recommend commit splitting/squashing strategies
-- **skill-toolkit** (Skill): Skill lifecycle management (create, lint, merge, convert, upgrade)
+- **skill-kit** (Skill): Skill lifecycle management (create, lint, merge, convert, upgrade)
 
 ### [dotfile-tools](./plugins/dotfile-tools)
 

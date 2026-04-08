@@ -13,11 +13,11 @@
         "name": "es6.kr"
       },
       "category": "productivity",
-      "description": "Code quality tools including commit-tidy analysis and skill-toolkit for skill lifecycle management",
+      "description": "claude-session, code-workflow, commit-tidy, fix, repo, skill-kit, tdd, todowrite, wip",
       "homepage": "https://github.com/es6kr/claude-plugins/tree/main/plugins/code-quality",
       "name": "code-quality",
       "source": "./plugins/code-quality",
-      "version": "0.1.0"
+      "version": "0.1.1"
     },
     {
       "author": {

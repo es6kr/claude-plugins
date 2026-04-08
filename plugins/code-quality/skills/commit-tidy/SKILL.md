@@ -1,6 +1,6 @@
 ---
-name: commit-splitter
-description: Analyze staged changes and recommend commit splitting strategy. Use when the user says "commit split", "split commits", "should I split this commit", or when reviewing large changesets before committing.
+name: commit-tidy
+description: Analyze staged/committed changes and recommend splitting or squashing strategy. Use when the user says "commit split", "split commits", "should I split this commit", "squash commits", "tidy commits", or when reviewing large changesets before committing.
 ---
 
 # Commit Splitter
@@ -52,6 +52,44 @@ Analyze staged/unstaged changes and recommend whether to split into multiple com
 3. **Related cleanup**
    - Feature + directly related tests
    - Bug fix + regression test
+
+## Squash Criteria
+
+When analyzing multiple commits, **recommend squashing as well as splitting**.
+
+### Squash when
+
+1. **Same type + same purpose**
+   - `test: A test` + `test: B test` (tests for the same feature) → squash into 1
+   - `fix: typo A` + `fix: typo B` (same review feedback) → squash into 1
+
+2. **Commits split per loop by automated agents**
+   - Autonomous agents like Ralph commit per loop → squash if same purpose
+   - Example: proxy test in loop 1, OIDC test in loop 2 → `test: add unit tests`
+
+3. **Consecutive WIP commits**
+   - `wip: in progress` + `feat: complete` → squash into one feat
+
+### Don't squash
+
+1. **Commits with different types** — keep `test` + `chore` + `feat` separate
+2. **Commits belonging to different PRs/issues**
+3. **Independent changes that may need to be reverted**
+
+### Output format (when recommending squash)
+
+```
+### Recommendation: Squash 2 commits → 1
+
+**Before** (2 commits):
+- 441b966a test(dt): OIDC auth, proxy, SSO tests
+- e2b6503a test(dt): OIDC route tests (login, callback, me)
+
+**After** (1 commit):
+- test(dt): add OIDC auth unit tests
+
+**Reasoning**: Same type (test), same feature (OIDC auth), agent loop split
+```
 
 ## Instructions
 

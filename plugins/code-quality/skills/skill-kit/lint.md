@@ -26,6 +26,31 @@ Validate and fix SKILL.md frontmatter issues automatically.
 | `triggers:` | (remove) | Move keywords to description |
 | `<example>` in description | (remove) | `<example>` is agent-only syntax. Remove from skills. |
 
+### Frontmatter Field Order (Canonical Order)
+
+Frontmatter fields follow this order for readability. lint --fix will reorder automatically.
+
+```yaml
+---
+name:                      # 1. Required
+depends-on:                # 2. Dependencies
+triggers:                  # 3. Hook triggers
+description:               # 4. Required (last among required - longest)
+allowed-tools:             # 5. Optional
+agent:                     # 6. Optional
+context:                   # 7. Optional
+hooks:                     # 8. Optional
+model:                     # 9. Optional
+user-invocable:            # 10. Optional
+---
+```
+
+**Order validation rules:**
+- Warn if required fields (name, description) appear between optional fields
+- depends-on must follow immediately after name
+- triggers must follow immediately after description
+- Optional fields should be in alphabetical order among themselves
+
 ### Valid Optional Fields
 
 ```yaml
@@ -35,6 +60,7 @@ context: fork              # Context handling
 depends-on: [skill-a, skill-b]  # Dependent skill list
 hooks: {...}               # Hook configuration
 model: claude-sonnet-4-... # Specific model
+triggers: [...]            # Hook trigger declarations
 user-invocable: true       # User can invoke directly
 ```
 

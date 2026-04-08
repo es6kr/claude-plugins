@@ -1,4 +1,4 @@
-# Code Quality Plugin
+﻿# Code Quality Plugin
 
 Code quality tools for commit management and skill lifecycle.
 
@@ -42,11 +42,11 @@ Analyzes staged/committed changes and recommends splitting or squashing strategi
 - Large diff size
 - Consecutive WIP or agent-loop commits (squash candidates)
 
-#### skill-toolkit
+#### skill-kit
 
 Skill lifecycle management: create, lint, merge, convert, deduplicate, and upgrade skills.
 
-**Trigger**: "skill-toolkit", "skill lint", "skill merge", "skill dedup", "skill convert", "skill upgrade"
+**Trigger**: "skill-kit", "skill lint", "skill merge", "skill dedup", "skill convert", "skill upgrade"
 
 **Features**:
 - **writer**: Create new skills with proper structure

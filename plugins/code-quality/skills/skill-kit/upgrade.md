@@ -47,6 +47,17 @@ Fix: Added skill-usage.md rule + created skill-manager upgrade topic
 → Done
 ```
 
+## Language Matching
+
+When adding/modifying content in an existing skill, match the language of the existing content:
+
+1. Read the existing `SKILL.md` and 1-2 topic files
+2. If content is **English** → write in **English only**
+3. If content is **Korean** → write in **Korean** (technical terms in English OK)
+4. If mixed → follow the **majority language**
+
+**Do not** write Korean content in an English skill or vice versa.
+
 ## Workflow
 
 ### 1. Identify Target Skill
