@@ -1,19 +1,8 @@
 #!/bin/bash
 # Extension Host restart script
+# Restart must be done through UI interaction (CLI has no command execution flag).
 
-# Method 1: VSCode CLI (recommended)
-if command -v code &> /dev/null; then
-    echo "Restarting Extension Host via VSCode CLI..."
-    code --command "workbench.action.restartExtensionHost" 2>/dev/null && exit 0
-fi
-
-# Method 2: Cursor CLI
-if command -v cursor &> /dev/null; then
-    echo "Restarting Extension Host via Cursor CLI..."
-    cursor --command "workbench.action.restartExtensionHost" 2>/dev/null && exit 0
-fi
-
-# Method 3: AppleScript (macOS fallback)
+# Method 1: AppleScript (macOS)
 if [ "$(uname)" = "Darwin" ]; then
     echo "Attempting Extension Host restart via AppleScript..."
     osascript -e '

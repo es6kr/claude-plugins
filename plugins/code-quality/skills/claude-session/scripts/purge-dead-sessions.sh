@@ -15,6 +15,11 @@ PROJECTS_DIR="$CLAUDE_DIR/projects"
 PROJECT_NAME="${1:?Usage: purge-dead-sessions.sh <project_name> [--delete]}"
 DELETE_FLAG="$2"
 
+if [[ "$PROJECT_NAME" == *".."* || "$PROJECT_NAME" == *"/"* ]]; then
+    echo "ERROR: invalid project name (must not contain '..' or '/')" >&2
+    exit 1
+fi
+
 SESSION_DIR="$PROJECTS_DIR/$PROJECT_NAME"
 
 if [ ! -d "$SESSION_DIR" ]; then
@@ -29,7 +34,7 @@ for f in "$SESSION_DIR"/*.jsonl; do
     [ -f "$f" ] || continue
     lines=$(wc -l < "$f")
     if [ "$lines" -le 10 ]; then
-        has_assistant=$(grep -c '"type":"assistant"' "$f" 2>/dev/null || true)
+        has_assistant=$(grep -cE '"type"\s*:\s*"assistant"' "$f" 2>/dev/null || true)
         if [ "$has_assistant" -eq 0 ]; then
             session_id=$(basename "$f" .jsonl)
             count=$((count + 1))

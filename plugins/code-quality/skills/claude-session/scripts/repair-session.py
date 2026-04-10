@@ -102,7 +102,17 @@ def remove_orphan_tool_results(messages: List[Tuple[str, Optional[dict]]]) -> Tu
                         for item in tool_results
                     )
                     if all_orphan:
-                        removed += 1
+                        # Remove only orphan tool_results, keep other content
+                        non_orphan_content = [
+                            item for item in data.get('message', {}).get('content', [])
+                            if item.get('type') != 'tool_result'
+                            or item.get('tool_use_id') in tool_use_ids
+                        ]
+                        if non_orphan_content:
+                            data['message']['content'] = non_orphan_content
+                            result.append((json.dumps(data), data))
+                        else:
+                            removed += 1
                         continue
         result.append((line, data))
 

@@ -237,5 +237,5 @@ After execution:
 
 ## Requirements
 
-- claude-code-sessions MCP server required
+- claude-sessions-mcp MCP server required
 - Serena MCP server (when using extraction features)

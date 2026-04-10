@@ -1,7 +1,7 @@
 MARKETPLACE := es6kr-plugins
 PLUGIN_DIR := $(shell pwd)/plugins
 
-.PHONY: help install list add-marketplace update
+.PHONY: help install list add-marketplace test update
 
 help:
 	@echo "Usage:"
@@ -29,6 +29,12 @@ endif
 	fi
 	@echo "Installing plugin:"
 	claude plugin install $(PLUGIN)@$(MARKETPLACE)
+
+test:
+	@echo "Running bats tests..."
+	@bats tests/test_scripts.bats
+	@echo "Running pytest..."
+	@uvx --from pytest pytest tests/test_scripts.py -v
 
 uninstall:
 ifndef PLUGIN

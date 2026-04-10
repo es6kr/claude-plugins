@@ -68,10 +68,12 @@ grep -l "<keyword>" "$PROJECT_DIR"/*.jsonl | while read f; do
 done | sort -rn | head -5
 ```
 
-### Restricting Search Scope
+### Restricting Search Scope (Skill Procedure)
 
-- `--today`: Only sessions modified today (uses `find -newer`)
-- `--project <path>`: Specify a particular project path
+These are not script flags — they are implemented by the skill at invocation time:
+
+- `--today`: Filter results to sessions modified today (skill uses `find -newer`)
+- `--project <path>`: Specify a particular project path (skill overrides CWD-based detection)
 
 ### Output Format
 
