@@ -69,6 +69,8 @@ def clean_value(obj):
                 if key_modified:
                     keys_to_rename.append((key, cleaned_key))
         for old_key, new_key in keys_to_rename:
+            if new_key in obj and new_key != old_key:
+                continue  # skip if cleaned key already exists
             obj[new_key] = obj.pop(old_key)
             modified = True
         return obj, modified

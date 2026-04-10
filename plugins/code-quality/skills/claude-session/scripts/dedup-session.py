@@ -173,7 +173,18 @@ def dedup_session(session_file: Path, dry_run: bool = False) -> dict:
                         for item in tool_results
                     )
                     if all_orphan:
-                        orphan_removed += 1
+                        # Remove only orphan tool_results, keep other content (text, etc.)
+                        non_orphan_content = [
+                            item for item in data.get('message', {}).get('content', [])
+                            if item.get('type') != 'tool_result'
+                            or item.get('tool_use_id') in remaining_tool_use_ids
+                        ]
+                        if non_orphan_content:
+                            data['message']['content'] = non_orphan_content
+                            filtered_lines.append(json.dumps(data))
+                            filtered_data.append(data)
+                        else:
+                            orphan_removed += 1
                         duplicates_by_type['user (orphan tool_result)'] = duplicates_by_type.get('user (orphan tool_result)', 0) + 1
                         continue
         filtered_lines.append(line)

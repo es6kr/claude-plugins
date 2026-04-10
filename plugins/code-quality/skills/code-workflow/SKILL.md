@@ -32,6 +32,7 @@ Include:
 - Code snippets showing actual changes
 - List of file paths to be modified
 - Considerations / trade-offs
+- **Verification plan** (required): For each change group, specify verification procedure, command/URL, and expected result
 
 ### Step 3: User Review
 
@@ -87,4 +88,4 @@ Revise the plan and restart from step 3 (user review).
 After this skill invocation completes, **self-improve based on the conversation**:
 
 1. Detect limitations, failures, and workaround patterns for this skill in the conversation
-2. If improvement candidates are found, run `/skill-kit upgrade coding-workflow`
+2. If improvement candidates are found, run `/skill-kit upgrade code-workflow`

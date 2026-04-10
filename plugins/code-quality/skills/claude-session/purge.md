@@ -7,10 +7,10 @@ Only dead sessions (hook-only, no assistant response) are target of this skill.
 
 | Condition | Rule |
 | --------- | ---- |
-| 10+ lines AND last message exists | Keep |
-| except AI responses | Purge if only AI responses |
+| 10 lines or fewer AND no assistant response | Dead — purge target |
+| Has assistant response OR 11+ lines | Keep |
 
-Dead sessions are moved to .bak directory under project root.
+Dead sessions are permanently deleted.
 
 ## Workflow
 
@@ -53,5 +53,5 @@ done
 
 ## Notes
 
-- --delete flag permanently deletes sessions with 10+ lines after confirmation.
+- --delete flag permanently deletes dead sessions (10 or fewer lines, no assistant response) after confirmation.
 - clear_sessions MCP structure difference check is required for empty session cleanup.

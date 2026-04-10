@@ -18,9 +18,8 @@ Analyze topic boundaries in the current conversation or a specific session and r
 - `<session_id>` specified: Read that session's JSONL
 
 Look up current session ID:
-```bash
-bash scripts/find-session-id.sh
-```
+
+Use the `/session id` topic to look up the current session ID.
 
 ### 2. Topic Boundary Analysis
 
@@ -97,5 +96,5 @@ Since the current conversation's JSONL is not yet finalized:
 
 ## Requirements
 
-- claude-code-sessions MCP server required
+- claude-sessions-mcp MCP server required
 - `scripts/find-session-id.sh` (current session ID lookup)

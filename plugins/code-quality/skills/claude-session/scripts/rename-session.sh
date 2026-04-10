@@ -59,12 +59,10 @@ set_title() {
     fi
 
     # Append custom-title + agent-name records (Claude Code format)
-    local escaped_title
-    escaped_title=$(echo "$title" | sed 's/"/\\"/g')
-    printf '{"type":"custom-title","customTitle":"%s","sessionId":"%s"}\n' \
-        "$escaped_title" "$session_id" >> "$session_file"
-    printf '{"type":"agent-name","agentName":"%s","sessionId":"%s"}\n' \
-        "$escaped_title" "$session_id" >> "$session_file"
+    jq -nc --arg title "$title" --arg sid "$session_id" \
+        '{"type":"custom-title","customTitle":$title,"sessionId":$sid}' >> "$session_file"
+    jq -nc --arg title "$title" --arg sid "$session_id" \
+        '{"type":"agent-name","agentName":$title,"sessionId":$sid}' >> "$session_file"
 
     echo "Title set: $title"
     echo "Session: $session_id"

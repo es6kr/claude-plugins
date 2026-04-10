@@ -11,9 +11,9 @@ PROJECTS_DIR="$CLAUDE_DIR/projects"
 mkdir -p "$BAK_DIR"
 
 # Extract project folder name from current working directory
-# Claude Code converts / to - and . to -
+# Claude Code converts all non-alphanumeric characters to -
 CURRENT_DIR="$(pwd)"
-PROJECT_FOLDER=$(echo "$CURRENT_DIR" | sed 's|/|-|g; s|\.|-|g')
+PROJECT_FOLDER=$(echo "$CURRENT_DIR" | sed 's/[^a-zA-Z0-9]/-/g')
 
 # Find project session directory
 SESSION_DIR="$PROJECTS_DIR/$PROJECT_FOLDER"
@@ -47,7 +47,7 @@ echo "Session moved to backup directory."
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 if [ -n "$VSCODE_IPC_HOOK" ] || [ -n "$VSCODE_IPC_HOOK_CLI" ] || [ "$TERM_PROGRAM" = "vscode" ]; then
     echo "VSCode/Cursor environment detected. Restarting Extension Host..."
-    bash "$SCRIPT_DIR/restart-extension-host.sh"
+    bash "$SCRIPT_DIR/restart-extension-host.sh" || true
 fi
 
 echo "Done!"
